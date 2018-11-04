@@ -1,0 +1,32 @@
+<h1>Register</h1>
+
+<%= form_with scope: :candidate, url: candidate_register_post_path, local: true do |form| %>
+
+  <% if @candidate and @candidate.errors.any? %>
+    <div>
+      <h2>Error:</h2>
+      <ul>
+        <% @candidate.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </p>
+  <p>
+    <%= form.label :fullname %>
+    <%= form.text_field :fullname %>
+  </p>
+  <p>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
